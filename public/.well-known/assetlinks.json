@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "com.example.tunse_mobile",
+    "package_name": "tunse.tech",
+    "sha256_cert_fingerprints": ["D3:0D:BB:89:8D:37:9B:11:D4:7E:DB:A3:E9:A7:BE:3D:16:7E:4F:14:0A:B7:9B:72:28:92:C3:1A:41:EC:50:47"]
+  }
+}]
