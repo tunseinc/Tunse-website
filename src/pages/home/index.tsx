@@ -10,7 +10,7 @@ const Home = () => {
                 <div className="absolute inset-0 bg-[url('/assets/images/header_bg.png')] bg-contain bg-center w-full h-full"> </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-gray-950  via-gray-800 to-gray-700/80 "></div>
                 <div className="relative z-10 flex flex-col flex-1 gap-5 p-5 w-full lg:max-w-[95%] mx-auto h-full">
-                    <Link to={"/"} > <LogoWhite /> </Link>
+                    <Link to={"/"} className="w-fit"> <LogoWhite /> </Link>
                     <div className="flex-1 h-full flex flex-col gap-10 justify-center">
                         <h2 className="text-white font-semibold text-4xl">Tunse! Get Dignified And <br /> Reliable Experts</h2>
                         <p className="text-white">We are on a mission to create a marketplace that brings together basic <br /> handy service providers and customers in need of their services.</p>
