@@ -10,7 +10,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/delete-account" element={<DeleteAccount />} />
+        <Route path="/delete-tunse-account" element={<DeleteAccount />} />
         <Route path="/terms" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="*" element={<Navigate to={"/"} />} />
