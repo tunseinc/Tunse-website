@@ -79,7 +79,7 @@ const Navbar = () => {
                 <div className="md:hidden flex items-center">
                     <motion.button
                         whileTap={{ scale: 0.7 }}
-                        className="text-gray-500 cursor-pointer" onClick={toggleMenu}>
+                        className="text-gray-500 cursor-pointer size-10 flex items-center justify-center" onClick={toggleMenu}>
                         {isOpen ? <FiX className="size-6" /> : <FiMenu className="size-6" />}
                     </motion.button>
                 </div>
