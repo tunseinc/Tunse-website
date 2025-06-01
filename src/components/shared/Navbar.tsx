@@ -19,13 +19,13 @@ const Navbar = () => {
         }
     }, [isOpen])
 
-    // useLayoutEffect(() => {
-    //     const handleResize = () => {
-
-    //     }
-
-
-    // }, [])
+    useLayoutEffect(() => {
+        const handleResize = () => {
+            setIsOpen(false);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <header className="fixed top-0 left-0  right-0 w-full z-50 transition-all duration-300 bg-white">
