@@ -3,4 +3,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: white;
+  overflow-x: hidden;
 }
