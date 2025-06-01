@@ -89,7 +89,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? menuHeight : 0 }}
                 transition={{ duration: 0.1, type: "spring", stiffness: 100, damping: 20 }}
-                className="md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg space-y-5">
+                className="w-full md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg space-y-5">
                 <div ref={menuRef} className="px-4 py-5">
                     <nav
                         className="flex flex-col space-y-3">

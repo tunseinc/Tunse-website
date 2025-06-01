@@ -12,7 +12,7 @@ const Homepage = () => {
     return (
         <>
             <Navbar />
-            <main className="relative flex flex-col w-full min-h-[calc(100dvh-5rem)] mt-[5rem] py-5">
+            <main className="relative flex flex-col w-full min-h-[calc(100dvh-5rem)] overflow-x-hidden mt-[5rem] py-5">
                 <Hero />
                 <Features />
                 <HowItWorks />
