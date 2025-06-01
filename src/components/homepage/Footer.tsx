@@ -7,7 +7,7 @@ const Footer = () => {
                 <Link to={"/"} className="w-fit my-6">
                     <img src="./assets/images/TUNSE.png" alt="tunse" />
                 </Link>
-                <div className="flex items-center gap-36">
+                <div className="flex items-center gap-20 md:gap-36">
                     <div className="flex flex-col gap-3">
                         <h4 className="font-bold text-sm text-left text-[#343844]">About Tunse</h4>
                         <ul className="flex flex-col items-start gap-3">
