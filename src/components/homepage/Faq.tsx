@@ -5,19 +5,51 @@ import { motion } from "motion/react";
 const faqData = [
     {
         question: "What is Tunse?",
-        answer: "Neuros is an AI-powered business analytics platform designed to provide real-time insights, predictive analytics, and seamless integrations with various tools. Unlike traditional analytics platforms, Neuros harnesses the power of artificial intelligence to offer more accurate forecasts, customizable dashboards, and a user-friendly interface tailored for businesses of all sizes."
+        answer: "Tunse is a smart, on-demand platform that connects you with trusted artisans (T-workers) and verified vendors for home and lifestyle services. From plumbing and tailoring to electrical work and cleaning, Tunse helps you find and book reliable service providers—all through a single mobile app."
     },
     {
         question: "How do I become a T-worker?",
-        answer: "Neuros is an AI-powered business analytics platform designed to provide real-time insights, predictive analytics, and seamless integrations with various tools. Unlike traditional analytics platforms, Neuros harnesses the power of artificial intelligence to offer more accurate forecasts, customizable dashboards, and a user-friendly interface tailored for businesses of all sizes."
+        answer: "To join as a T-worker, download the Tunse app and select “Join as a T-worker.” You’ll need to complete a profile, upload your credentials or skillset details, and provide valid identification. Once you’re verified, you can begin receiving job requests from customers near you."
     },
     {
         question: "Can I trust the artisans?",
-        answer: "Neuros is an AI-powered business analytics platform designed to provide real-time insights, predictive analytics, and seamless integrations with various tools. Unlike traditional analytics platforms, Neuros harnesses the power of artificial intelligence to offer more accurate forecasts, customizable dashboards, and a user-friendly interface tailored for businesses of all sizes."
+        answer: "Yes. All T-workers are verified through a multi-step process that includes ID checks, skill validation, and behavior screening. Additionally, every completed job is rated and reviewed by customers, so you can hire based on real experiences and community feedback."
     },
     {
-        question: "How is Pricing determined?",
-        answer: "Neuros is an AI-powered business analytics platform designed to provide real-time insights, predictive analytics, and seamless integrations with various tools. Unlike traditional analytics platforms, Neuros harnesses the power of artificial intelligence to offer more accurate forecasts, customizable dashboards, and a user-friendly interface tailored for businesses of all sizes."
+        question: "How is pricing determined?",
+        answer: "Tunse allows T-workers to set custom quotes based on the job request. Customers can then bargain or negotiate directly with the T-worker to agree on a fair price. Once an agreement is reached, payment is made by the customer to Tunse before the service begins—this assures the T-worker of the customer’s commitment.\n\nHowever, Tunse does not release full payment to the T-worker immediately.\n• An initial percentage is paid after job completion.\n• The remaining balance is held during a guarantee period, after which it's released—provided there are no complaints.\n• If a customer raises an issue, the T-worker must revisit and resolve it before final payment is remitted.\n\nThis structure protects both parties and ensures service quality and accountability."
+    },
+    {
+        question: "Can I cancel a booking?",
+        answer: "Yes, customers can cancel a job before it starts. However, if a payment has already been made and the T-worker has arrived or committed time/resources, a small cancellation fee may apply. This ensures fairness to service providers. Specific cancellation terms are outlined in our app during the booking process."
+    },
+    {
+        question: "What happens if I’m not satisfied with the service?",
+        answer: "If you're not satisfied with the job done, you can report the issue through the app within the guarantee period. The assigned T-worker will be required to revisit and resolve the issue at no extra charge. Tunse holds part of the payment until the job is completed to your satisfaction."
+    },
+    {
+        question: "How are materials sourced?",
+        answer: "T-workers can request materials directly from verified vendors listed on the Tunse platform. Customers can also view material quotes and approve purchases before work begins. This integrated process ensures speed, quality, and transparency in sourcing materials for any job."
+    },
+    {
+        question: "When do T-workers receive payment?",
+        answer: "T-workers receive an initial percentage of the payment after successfully completing the job. The remaining amount is held by Tunse during the service guarantee period and is released only after the customer confirms satisfaction or the period lapses without complaint."
+    },
+    {
+        question: "How do I become a vendor on Tunse?",
+        answer: "If you supply materials like building tools, plumbing parts, or beauty products, you can become a vendor on Tunse. Simply download the app and select “Join as a Vendor.” You’ll be guided through a simple onboarding process to upload your business details, product catalog, and delivery preferences. Once verified, your shop will be available to artisans and customers across your area."
+    },
+    {
+        question: "What is the next-of-kin notification feature for T-workers?",
+        answer: "Tunse is committed to the safety and accountability of our artisans (T-workers). Each T-worker is encouraged to register a trusted next of kin. When the T-worker accepts a job, Tunse automatically sends an email to their next of kin with details about the job—such as location, time, and service type—so that someone they trust is always informed about their work movements."
+    },
+    {
+        question: "Is the Tunse app available on all devices?",
+        answer: "Yes. The Tunse app is available for download on Android via the Google Play Store. An iOS version will be available soon. We recommend keeping your app updated to access the latest features, security improvements, and service enhancements."
+    },
+    {
+        question: "How do I contact Tunse for help?",
+        answer: "If you have any questions, complaints, or need assistance using the app, you can reach out to our customer support team directly through the app or by emailing support@tunse.tech. We aim to respond to all inquiries within 24 hours. You can also visit our Help Center on the website for more guides and tips."
     }
 ];
 
