@@ -2,6 +2,13 @@ import { motion } from "motion/react";
 import { useLayoutEffect, useRef, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi"
 import { Link } from "react-router";
+// "About", "Features", "How it Works", "Case Studies"
+const navLinks = [
+    { id: 1, title: "About", href: "/about-us" },
+    { id: 2, title: "Features", href: "#" },
+    { id: 3, title: "How it Works", href: "#" },
+    { id: 4, title: "Case Studies", href: "#" },
+]
 
 const Navbar = () => {
 
@@ -29,7 +36,7 @@ const Navbar = () => {
 
     return (
         <header className="fixed top-0 left-0  right-0 w-full z-50 transition-all duration-300 bg-white">
-            <div className="container w-full lg:w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+            <div className="container w-full lg:w-6xl mx-auto px-4 sm:px-6 lg:px-0 flex items-center justify-between h-16 md:h-20">
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -44,13 +51,13 @@ const Navbar = () => {
                 </motion.div>
                 {/* Desktop */}
                 <nav className="lg:flex hidden space-x-8 text-[#7884A5]">
-                    {["About", "Features", "How it Works", "Case Studies"].map((item, index) => (
+                    {navLinks.map((item, index) => (
                         <motion.a
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.7 + index * 0.2 }}
-                            href="#" key={item} className="relative hover:text-[#393A10] dark:hover:text-[#393A10] font-medium transition-colors duration-300 group">
-                            {item}
+                            href={item.href} key={item.id} className="relative hover:text-[#393A10] dark:hover:text-[#393A10] font-medium transition-colors duration-300 group">
+                            {item.title}
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#393A10] group-hover:w-full transition-all duration-300"></span>
                         </motion.a>
                     ))}
@@ -93,14 +100,14 @@ const Navbar = () => {
                 <div ref={menuRef} className="px-4 py-5">
                     <nav
                         className="flex flex-col space-y-3">
-                        {["About", "Features", "How it Works", "Case Studies"].map((item, index) => (
+                        {navLinks.map((item, index) => (
                             <motion.a
                                 onClick={toggleMenu}
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.7 + index * 0.2 }}
-                                href="#" key={item} className="text-gray-300 font-medium py-2">
-                                {item}
+                                href={item.href} key={item.id} className="text-gray-300 font-medium py-2">
+                                {item.title}
                             </motion.a>
                         ))}
                     </nav>

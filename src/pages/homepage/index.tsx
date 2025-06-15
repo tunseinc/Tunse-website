@@ -1,3 +1,4 @@
+import Artisans from "../../components/homepage/Artisans"
 import Faq from "../../components/homepage/Faq"
 import Features from "../../components/homepage/Features"
 import Footer from "../../components/homepage/Footer"
@@ -16,6 +17,7 @@ const Homepage = () => {
                 <Hero />
                 <Features />
                 <HowItWorks />
+                <Artisans />
                 <ReliableService />
                 <WhatUsersSay />
                 <Faq />

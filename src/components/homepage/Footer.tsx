@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebookF, FaXTwitter, FaLinkedinIn } from "react-icons/
 const Footer = () => {
     return (
         <footer className="w-full">
-            <div className="container mx-auto text-center py-10 flex flex-col w-full lg:w-6xl gap-5 p-5">
+            <div className="container mx-auto text-center py-10 flex flex-col w-full lg:w-6xl gap-5 p-5 lg:px-0">
                 <Link to={"/"} className="w-fit my-6">
                     <img src="./assets/images/TUNSE.png" alt="tunse" />
                 </Link>

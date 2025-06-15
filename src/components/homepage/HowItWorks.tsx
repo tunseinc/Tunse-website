@@ -1,7 +1,7 @@
 
 const HowItWorks = () => {
     return (
-        <section className="container mx-auto text-center py-10 flex flex-col w-full lg:w-6xl gap-5 p-5">
+        <section className="container mx-auto text-center my-20 flex flex-col w-full lg:w-6xl gap-5 p-5">
             <h1 className="text-[#393A10] font-bold text-3xl md:text-5xl text-left">How it Works</h1>
             <p className="w-full md:w-1/3 text-left text-gray-500">
                 Find verified artisans, track your bookings in real time, and pay securely — all in one place.

@@ -66,7 +66,7 @@ const Faq = () => {
 
 
     return (
-        <section className="container mx-auto text-center flex flex-col w-full lg:w-6xl gap-5 p-5 py-20">
+        <section className="container mx-auto text-center flex flex-col w-full lg:w-6xl gap-5 p-5 py-20 lg:px-0">
             <div className="grid grid-cols-12 gap-5">
                 <div className="col-span-12 lg:col-span-4 flex flex-col gap-3 w-full">
                     <motion.h1
