@@ -9,7 +9,7 @@ const HowItWorks = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20 w-full mt-10">
                 <article className="flex flex-col w-full gap-3 text-left md:w-[260px]">
                     <div className="h-[285px]">
-                        <img src="./assets/images/wk-1.png" alt="wk-1" className="h-full w-full object-cover pointer-events-none" />
+                        <img src="./assets/images/Browse.png" alt="Browse" className="h-full w-full object-cover pointer-events-none" />
                     </div>
                     <div className="flex flex-col gap-2 py-2 mt-3 w-full">
                         <h3 className="text-[#393A10] font-semibold">Browse</h3>
@@ -18,7 +18,7 @@ const HowItWorks = () => {
                 </article>
                 <article className="flex flex-col w-full gap-3 text-left md:w-[260px]">
                     <div className="h-[285px]">
-                        <img src="./assets/images/wk-1.png" alt="wk-1" className="h-full w-full object-cover pointer-events-none" />
+                        <img src="./assets/images/Book.png" alt="Book" className="h-full w-full object-cover pointer-events-none" />
                     </div>
                     <div className="flex flex-col gap-2 py-2 mt-3 w-full">
                         <h3 className="text-[#393A10] font-semibold">Book</h3>
@@ -27,7 +27,7 @@ const HowItWorks = () => {
                 </article>
                 <article className="flex flex-col w-full gap-3 text-left md:w-[260px]">
                     <div className="h-[285px]">
-                        <img src="./assets/images/wk-1.png" alt="wk-1" className="h-full w-full object-cover pointer-events-none" />
+                        <img src="./assets/images/Pay.png" alt="Pay" className="h-full w-full object-cover pointer-events-none" />
                     </div>
                     <div className="flex flex-col gap-2 py-2 mt-3 w-full">
                         <h3 className="text-[#393A10] font-semibold">Pay</h3>
@@ -36,7 +36,7 @@ const HowItWorks = () => {
                 </article>
                 <article className="flex flex-col w-full gap-3 text-left md:w-[260px]">
                     <div className="h-[285px]">
-                        <img src="./assets/images/wk-1.png" alt="wk-1" className="h-full w-full object-cover pointer-events-none" />
+                        <img src="./assets/images/Review.png" alt="Review" className="h-full w-full object-cover pointer-events-none" />
                     </div>
                     <div className="flex flex-col gap-2 py-2 mt-3 w-full">
                         <h3 className="text-[#393A10] font-semibold">Review</h3>
