@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from "react-router"
-import Privacy from "./pages/privacy"
 import TermsAndConditions from "./pages/terms-and-conditions"
 import DeleteAccount from "./pages/delete-account"
 import Homepage from "./pages/homepage"
 import Home from "./pages/home"
 import AboutUs from "./pages/about-us"
+import PrivacyPolicy from "./pages/privacy"
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/delete-tunse-account" element={<DeleteAccount />} />
         <Route path="/terms" element={<TermsAndConditions />} />
-        <Route path="/privacy-policy" element={<Privacy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>
