@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router"
 import TermsAndConditions from "./pages/terms-and-conditions"
 import DeleteAccount from "./pages/delete-account"
 import Homepage from "./pages/homepage"
-import Home from "./pages/home"
+// import Home from "./pages/home"
 import AboutUs from "./pages/about-us"
 import PrivacyPolicy from "./pages/privacy"
 import VerificationLinkExpired from "./pages/verification-link-expired/verification-link-expired"
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/delete-tunse-account" element={<DeleteAccount />} />
