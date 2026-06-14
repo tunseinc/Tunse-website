@@ -6,6 +6,7 @@ import Homepage from "./pages/homepage"
 import AboutUs from "./pages/about-us"
 import PrivacyPolicy from "./pages/privacy"
 import VerificationLinkExpired from "./pages/verification-link-expired/verification-link-expired"
+import SupportPage from "./pages/support"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/session-expired" element={<VerificationLinkExpired />} />
         <Route path="/verification-link-expired" element={<VerificationLinkExpired />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/support" element={<SupportPage />} />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>

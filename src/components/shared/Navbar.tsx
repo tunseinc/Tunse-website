@@ -7,7 +7,7 @@ const navLinks = [
     { id: 1, title: "About", href: "/about-us" },
     { id: 2, title: "Features", href: "#" },
     { id: 3, title: "How it Works", href: "#" },
-    { id: 4, title: "Case Studies", href: "#" },
+    { id: 4, title: "Support", href: "/support" },
 ]
 
 const Navbar = () => {
@@ -52,14 +52,16 @@ const Navbar = () => {
                 {/* Desktop */}
                 <nav className="lg:flex hidden space-x-8 text-[#7884A5]">
                     {navLinks.map((item, index) => (
-                        <motion.a
+                        <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.7 + index * 0.2 }}
-                            href={item.href} key={item.id} className="relative hover:text-[#393A10] dark:hover:text-[#393A10] font-medium transition-colors duration-300 group">
-                            {item.title}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#393A10] group-hover:w-full transition-all duration-300"></span>
-                        </motion.a>
+                            key={item.id} className="relative hover:text-[#393A10] dark:hover:text-[#393A10] font-medium transition-colors duration-300 group">
+                            <Link to={item.href}>
+                                {item.title}
+                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#393A10] group-hover:w-full transition-all duration-300"></span>
+                            </Link>
+                        </motion.div>
                     ))}
                 </nav>
 
@@ -69,7 +71,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
                         className="px-5 py-2 rounded-full border border-[#98BC77] cursor-pointer text-[#98BC77]">
-                        Get a demo
+                        <Link to="/support">Get a demo</Link>
                     </motion.button>
                     <motion.button
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -101,14 +103,14 @@ const Navbar = () => {
                     <nav
                         className="flex flex-col space-y-3">
                         {navLinks.map((item, index) => (
-                            <motion.a
+                            <motion.div
                                 onClick={toggleMenu}
                                 initial={{ opacity: 0, y: -20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.7 + index * 0.2 }}
-                                href={item.href} key={item.id} className="text-gray-300 font-medium py-2">
-                                {item.title}
-                            </motion.a>
+                                key={item.id} className="text-gray-300 font-medium py-2">
+                                <Link to={item.href}>{item.title}</Link>
+                            </motion.div>
                         ))}
                     </nav>
 
@@ -116,7 +118,7 @@ const Navbar = () => {
                         <motion.button
                             whileTap={{ scale: 0.9 }}
                             className="w-full px-5 py-2 rounded-full border border-[#98BC77] cursor-pointer text-[#98BC77]">
-                            Get a demo
+                            <Link to="/support">Get a demo</Link>
                         </motion.button>
                         <motion.button
                             whileTap={{ scale: 0.7 }}
