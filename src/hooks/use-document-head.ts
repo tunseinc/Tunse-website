@@ -52,7 +52,7 @@ export default function useDocumentHead(options: DocumentHeadOptions = {}) {
     if (ogImage)
       setMetaProperty(
         "og:image",
-        ogImage ?? `${window.location.origin}/assets/images/Maiaddy-logo.png`
+        ogImage ?? `${window.location.origin}/assets/images/public/favicon192.png`
       );
     if (twitterCard) setMetaName("twitter:card", twitterCard);
     if (twitterTitle) setMetaName("twitter:title", twitterTitle);
