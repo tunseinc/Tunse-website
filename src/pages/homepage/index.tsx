@@ -7,8 +7,10 @@ import HowItWorks from "../../components/homepage/HowItWorks"
 import ReliableService from "../../components/homepage/ReliableService"
 import Tools from "../../components/homepage/Tools"
 import Navbar from "../../components/shared/Navbar"
+import useDocumentHead from "../../hooks/use-document-head"
 
 const Homepage = () => {
+    useDocumentHead({ title: "Home" });
     return (
         <>
             <Navbar />

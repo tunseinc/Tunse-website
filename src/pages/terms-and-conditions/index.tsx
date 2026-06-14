@@ -1,4 +1,5 @@
 import React from "react";
+import useDocumentHead from "../../hooks/use-document-head";
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <section className="mb-8">
@@ -8,6 +9,7 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 );
 
 export default function TermsAndConditions() {
+ useDocumentHead({ title: "Terms" });
     return (
         <div className="max-w-4xl mx-auto p-6 text-gray-800">
             <h1 className="text-2xl font-bold mb-6 text-center">Terms and Conditions</h1>

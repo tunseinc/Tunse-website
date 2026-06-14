@@ -1,6 +1,8 @@
 import { useState } from "react";
+import useDocumentHead from "../../hooks/use-document-head";
 
 const SupportPage = () => {
+    useDocumentHead({ title: "Support" });
     const [isLoading, setIsLoading] = useState(true);
 
     return (

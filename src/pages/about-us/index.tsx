@@ -5,8 +5,10 @@ import InfoSection from '../../components/abous-us-page/InfoSection'
 import CoreValues from '../../components/abous-us-page/CoreValues'
 import Faq from '../../components/homepage/Faq'
 import Serve from '../../components/abous-us-page/Serve'
+import useDocumentHead from '../../hooks/use-document-head'
 
 const AboutUs = () => {
+    useDocumentHead({ title: "About Us" });
     return (
         <>
             <Navbar />

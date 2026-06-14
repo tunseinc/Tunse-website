@@ -1,5 +1,7 @@
+import useDocumentHead from "../../hooks/use-document-head";
 
 const PrivacyPolicy = () => {
+ useDocumentHead({ title: "Privacy Policy" });
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-4">TUNSE Privacy Policy</h1>
