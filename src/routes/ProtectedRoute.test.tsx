@@ -32,7 +32,10 @@ describe("ProtectedRoute", () => {
     })
 
     it("renders the protected content when a token is present", () => {
-        useAuthStore.setState({ token: "abc", user: { id: 1, name: "A", email: "a@example.com", role: "student" } })
+        useAuthStore.setState({
+            token: "abc",
+            user: { id: 1, name: "A", email: "a@example.com", role: "student", email_verified: true },
+        })
 
         const { getByText } = renderWithProviders(<Protected />, { route: "/student" })
 

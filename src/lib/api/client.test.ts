@@ -27,7 +27,10 @@ describe("apiClient", () => {
     })
 
     it("logs out the user when a request receives a 401", async () => {
-        useAuthStore.setState({ token: "stale-token", user: { id: 1, name: "A", email: "a@example.com", role: "student" } })
+        useAuthStore.setState({
+            token: "stale-token",
+            user: { id: 1, name: "A", email: "a@example.com", role: "student", email_verified: true },
+        })
         const logoutSpy = vi.spyOn(useAuthStore.getState(), "logout")
 
         const rejected = apiClient.interceptors.response.handlers![0]!.rejected!

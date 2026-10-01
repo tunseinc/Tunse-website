@@ -8,6 +8,7 @@ export interface AuthUser {
     name: string
     email: string
     role: UserRole
+    email_verified: boolean
     student_profile?: {
         id: number
         challenge_id: string | null

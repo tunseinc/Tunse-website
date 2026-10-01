@@ -32,7 +32,10 @@ describe("useIdleLogout", () => {
     })
 
     it("logs the user out after the timeout with no activity", async () => {
-        useAuthStore.setState({ token: "tok", user: { id: 1, name: "A", email: "a@example.com", role: "student" } })
+        useAuthStore.setState({
+            token: "tok",
+            user: { id: 1, name: "A", email: "a@example.com", role: "student", email_verified: true },
+        })
         renderHook(() => useIdleLogout(1000), { wrapper: Wrapper })
 
         await vi.advanceTimersByTimeAsync(1001)
@@ -41,7 +44,10 @@ describe("useIdleLogout", () => {
     })
 
     it("resets the timer on activity so it does not log out early", async () => {
-        useAuthStore.setState({ token: "tok", user: { id: 1, name: "A", email: "a@example.com", role: "student" } })
+        useAuthStore.setState({
+            token: "tok",
+            user: { id: 1, name: "A", email: "a@example.com", role: "student", email_verified: true },
+        })
         renderHook(() => useIdleLogout(1000), { wrapper: Wrapper })
 
         await vi.advanceTimersByTimeAsync(700)

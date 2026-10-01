@@ -2,11 +2,7 @@ import { Alert, Button, Card, Form, Input } from "antd"
 import { Link, useNavigate } from "react-router"
 import useDocumentHead from "../../../hooks/use-document-head"
 import { useLogin } from "../../../features/challenge/auth/useAuth"
-import type { AuthUser } from "../../../stores/authStore"
-
-function redirectPathForRole(role: AuthUser["role"]): string {
-    return role === "student" ? "/challenge/student/dashboard" : "/challenge/admin/dashboard"
-}
+import { redirectPathForRole } from "../../../lib/redirectPathForRole"
 
 export default function ChallengeLoginPage() {
     useDocumentHead({ title: "Log In — Tunse Challenge" })

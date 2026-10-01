@@ -7,7 +7,13 @@ describe("authStore", () => {
     })
 
     it("stores the token and user on login", () => {
-        const user = { id: 1, name: "Jane Student", email: "jane@example.com", role: "student" as const }
+        const user = {
+            id: 1,
+            name: "Jane Student",
+            email: "jane@example.com",
+            role: "student" as const,
+            email_verified: true,
+        }
 
         useAuthStore.getState().login("token-abc", user)
 
@@ -16,7 +22,9 @@ describe("authStore", () => {
     })
 
     it("clears the token and user on logout", () => {
-        useAuthStore.getState().login("token-abc", { id: 1, name: "Jane", email: "jane@example.com", role: "student" })
+        useAuthStore
+            .getState()
+            .login("token-abc", { id: 1, name: "Jane", email: "jane@example.com", role: "student", email_verified: true })
 
         useAuthStore.getState().logout()
 
@@ -25,13 +33,19 @@ describe("authStore", () => {
     })
 
     it("isStaff returns true for admin/auditor/super_admin and false for student", () => {
-        useAuthStore.getState().login("t", { id: 1, name: "A", email: "a@example.com", role: "admin" })
+        useAuthStore
+            .getState()
+            .login("t", { id: 1, name: "A", email: "a@example.com", role: "admin", email_verified: true })
         expect(useAuthStore.getState().isStaff()).toBe(true)
 
-        useAuthStore.getState().login("t", { id: 2, name: "B", email: "b@example.com", role: "auditor" })
+        useAuthStore
+            .getState()
+            .login("t", { id: 2, name: "B", email: "b@example.com", role: "auditor", email_verified: true })
         expect(useAuthStore.getState().isStaff()).toBe(true)
 
-        useAuthStore.getState().login("t", { id: 3, name: "C", email: "c@example.com", role: "student" })
+        useAuthStore
+            .getState()
+            .login("t", { id: 3, name: "C", email: "c@example.com", role: "student", email_verified: true })
         expect(useAuthStore.getState().isStaff()).toBe(false)
     })
 

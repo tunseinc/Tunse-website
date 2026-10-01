@@ -4,9 +4,12 @@ import ChallengeLandingLayout from "../../layouts/challenge/ChallengeLandingLayo
 import StudentPortalLayout from "../../layouts/challenge/StudentPortalLayout"
 import { AntdProvider } from "../../theme/AntdProvider"
 import ProtectedRoute from "../../routes/ProtectedRoute"
+import RequireVerifiedEmail from "../../routes/RequireVerifiedEmail"
 import RoleGuard from "../../routes/RoleGuard"
 import ChallengeLoginPage from "./auth/ChallengeLoginPage"
 import ChallengeRegisterPage from "./auth/ChallengeRegisterPage"
+import VerifyEmailLandingPage from "./auth/VerifyEmailLandingPage"
+import VerifyEmailNoticePage from "./auth/VerifyEmailNoticePage"
 import ChallengeLandingPage from "./landing/ChallengeLandingPage"
 import InstitutionOverviewPage from "./institution/InstitutionOverviewPage"
 import AdminAuditQueuePage from "./admin/AdminAuditQueuePage"
@@ -37,15 +40,19 @@ export default function ChallengeRoutes() {
                     <Route path="register" element={<ChallengeRegisterPage />} />
                     <Route path="login" element={<ChallengeLoginPage />} />
                     <Route path="rules" element={<RulesFaqPage />} />
+                    <Route path="verify-email-notice" element={<VerifyEmailNoticePage />} />
+                    <Route path="verify-email/:id/:hash" element={<VerifyEmailLandingPage />} />
                 </Route>
 
                 <Route
                     path="student"
                     element={
                         <ProtectedRoute>
-                            <RoleGuard allow={["student"]}>
-                                <StudentPortalLayout />
-                            </RoleGuard>
+                            <RequireVerifiedEmail>
+                                <RoleGuard allow={["student"]}>
+                                    <StudentPortalLayout />
+                                </RoleGuard>
+                            </RequireVerifiedEmail>
                         </ProtectedRoute>
                     }
                 >
@@ -69,9 +76,11 @@ export default function ChallengeRoutes() {
                     path="admin"
                     element={
                         <ProtectedRoute>
-                            <RoleGuard allow={["admin", "auditor", "super_admin"]}>
-                                <AdminPortalLayout />
-                            </RoleGuard>
+                            <RequireVerifiedEmail>
+                                <RoleGuard allow={["admin", "auditor", "super_admin"]}>
+                                    <AdminPortalLayout />
+                                </RoleGuard>
+                            </RequireVerifiedEmail>
                         </ProtectedRoute>
                     }
                 >

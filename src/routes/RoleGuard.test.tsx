@@ -27,7 +27,9 @@ describe("RoleGuard", () => {
     })
 
     it("renders the guarded content when the user has an allowed role", () => {
-        useAuthStore.setState({ user: { id: 1, name: "A", email: "a@example.com", role: "admin" } })
+        useAuthStore.setState({
+            user: { id: 1, name: "A", email: "a@example.com", role: "admin", email_verified: true },
+        })
 
         const { getByText } = renderWithProviders(<Guarded />, { route: "/admin" })
 
@@ -35,7 +37,9 @@ describe("RoleGuard", () => {
     })
 
     it("redirects a student away from an admin-only route to their own dashboard", () => {
-        useAuthStore.setState({ user: { id: 1, name: "A", email: "a@example.com", role: "student" } })
+        useAuthStore.setState({
+            user: { id: 1, name: "A", email: "a@example.com", role: "student", email_verified: true },
+        })
 
         const { getByText } = renderWithProviders(<Guarded />, { route: "/admin" })
 

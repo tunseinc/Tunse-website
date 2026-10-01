@@ -25,7 +25,7 @@ describe("ChallengeLoginPage", () => {
     it("logs in a student and redirects to the student dashboard", async () => {
         vi.spyOn(authApi, "login").mockResolvedValue({
             token: "tok-1",
-            user: { id: 1, name: "Jane", email: "jane@example.com", role: "student" },
+            user: { id: 1, name: "Jane", email: "jane@example.com", role: "student", email_verified: true },
         })
         const user = userEvent.setup()
 
@@ -42,7 +42,7 @@ describe("ChallengeLoginPage", () => {
     it("logs in staff and redirects to the admin dashboard", async () => {
         vi.spyOn(authApi, "login").mockResolvedValue({
             token: "tok-2",
-            user: { id: 2, name: "Admin", email: "admin@example.com", role: "admin" },
+            user: { id: 2, name: "Admin", email: "admin@example.com", role: "admin", email_verified: true },
         })
         const user = userEvent.setup()
 

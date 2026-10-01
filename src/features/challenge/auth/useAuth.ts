@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { fetchCurrentUser, login, logout, register } from "../../../lib/api/auth"
+import { fetchCurrentUser, login, logout, register, resendVerificationEmail, verifyEmail } from "../../../lib/api/auth"
 import type { LoginPayload, RegisterPayload } from "../../../lib/api/auth"
 import { queryKeys } from "../../../lib/queryKeys"
 import { useAuthStore } from "../../../stores/authStore"
@@ -43,5 +43,18 @@ export function useCurrentUser() {
         queryFn: fetchCurrentUser,
         enabled: !!token,
         staleTime: 60_000,
+    })
+}
+
+export function useResendVerification() {
+    return useMutation({
+        mutationFn: () => resendVerificationEmail(),
+    })
+}
+
+export function useVerifyEmail() {
+    return useMutation({
+        mutationFn: ({ id, hash, expires, signature }: { id: string; hash: string; expires: string; signature: string }) =>
+            verifyEmail(id, hash, { expires, signature }),
     })
 }

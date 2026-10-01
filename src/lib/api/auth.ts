@@ -54,3 +54,17 @@ export async function fetchCurrentUser(): Promise<{ user: AuthUser }> {
     const { data } = await apiClient.get<{ user: AuthUser }>("/auth/me")
     return data
 }
+
+export async function resendVerificationEmail(): Promise<{ message: string }> {
+    const { data } = await apiClient.post<{ message: string }>("/auth/email/resend")
+    return data
+}
+
+export async function verifyEmail(
+    id: string,
+    hash: string,
+    params: { expires: string; signature: string },
+): Promise<{ message: string }> {
+    const { data } = await apiClient.get<{ message: string }>(`/auth/email/verify/${id}/${hash}`, { params })
+    return data
+}

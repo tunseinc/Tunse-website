@@ -96,11 +96,12 @@ export default function ChallengeRegisterPage() {
             <div className="max-w-lg mx-auto px-4 py-16">
                 <Result
                     status="success"
-                    title="You're in! Welcome to the Challenge."
+                    title="Almost there — verify your email"
                     subTitle={
                         <span>
                             Your Challenge ID is <strong>{challengeId}</strong> — you'll need it on every
-                            claim you submit for {inst?.name}.
+                            claim you submit for {inst?.name}. We've also sent a verification link to your
+                            email; you'll need to confirm it before you can submit claims.
                         </span>
                     }
                     extra={
