@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react"
 import { Navigate, Route, Routes } from "react-router"
 import TermsAndConditions from "./pages/terms-and-conditions"
 import DeleteAccount from "./pages/delete-account"
@@ -7,6 +8,8 @@ import AboutUs from "./pages/about-us"
 import PrivacyPolicy from "./pages/privacy"
 import VerificationLinkExpired from "./pages/verification-link-expired/verification-link-expired"
 import SupportPage from "./pages/support"
+
+const ChallengeRoutes = lazy(() => import("./pages/challenge/ChallengeRoutes"))
 
 function App() {
 
@@ -22,6 +25,14 @@ function App() {
         <Route path="/verification-link-expired" element={<VerificationLinkExpired />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/support" element={<SupportPage />} />
+        <Route
+          path="/challenge/*"
+          element={
+            <Suspense fallback={<div className="p-10 text-center">Loading Challenge…</div>}>
+              <ChallengeRoutes />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<Navigate to={"/"} />} />
       </Routes>
     </>
