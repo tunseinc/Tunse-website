@@ -41,8 +41,26 @@ describe("ChallengeRegisterPage", () => {
         await fillAccountStep(user, getByLabelText, "jane@example.com")
         await user.click(getByRole("button", { name: "Continue" }))
 
-        expect(await findByText("Enter a valid Nigerian mobile number, e.g. 0801 234 5678")).toBeInTheDocument()
+        expect(getByLabelText("Phone / WhatsApp")).toHaveValue("")
+        expect(await findByText("Enter your phone number")).toBeInTheDocument()
         expect(queryByLabelText("Institution")).not.toBeInTheDocument()
+    })
+
+    it("formats the phone number after the +234 country code however it is typed", async () => {
+        const user = userEvent.setup()
+        const { getByLabelText, findByText, getByRole } = renderWithProviders(<ChallengeRegisterPage />)
+        const phone = getByLabelText("Phone / WhatsApp")
+
+        for (const typed of ["08012345678", "+2348012345678", "234 801-234-5678"]) {
+            await user.clear(phone)
+            await user.type(phone, typed)
+            expect(phone).toHaveValue("801 234 5678")
+        }
+
+        await user.clear(phone)
+        await user.type(phone, "0601234567")
+        await user.click(getByRole("button", { name: "Continue" }))
+        expect(await findByText("Enter a valid Nigerian mobile number, e.g. 801 234 5678")).toBeInTheDocument()
     })
 
     it("only lists institutions in the selected state", async () => {

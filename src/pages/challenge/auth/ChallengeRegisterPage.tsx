@@ -28,8 +28,9 @@ const GRADUATION_YEARS = Array.from(
     (_, i) => FIRST_GRADUATION_YEAR + i,
 )
 
-/** Nigerian mobile: optional +234 / 234 / 0 prefix, then 10 digits starting 70/71/80/81/90/91. */
-const NIGERIAN_MOBILE = /^(\+?234|0)?[789][01]\d{8}$/
+const COUNTRY_CODE = "+234"
+/** Nigerian mobile without country code or leading 0: 10 digits starting 70/71/80/81/90/91. */
+const NIGERIAN_MOBILE = /^[789][01]\d{8}$/
 const PERSON_NAME = /^[\p{L}\s.'-]+$/u
 const ID_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".pdf"]
 const ID_FILE_MAX_BYTES = 5 * 1024 * 1024
@@ -71,7 +72,20 @@ const SERVER_FIELD_MAP: Record<string, { field?: FieldName; step: number }> = {
     student_id_file: { step: 2 },
 }
 
-const stripPhoneFormatting = (value: string) => value.replace(/[\s\-()]/g, "")
+const phoneDigits = (value: string) => value.replace(/\D/g, "")
+
+/**
+ * Formats whatever the student types or pastes ("0801...", "+234 801...", "234801...")
+ * as the national part only, grouped "801 234 5678" — the +234 is shown as the input prefix.
+ */
+function formatPhoneInput(value?: string): string {
+    let digits = phoneDigits(value ?? "")
+    if (digits.startsWith("234")) {
+        digits = digits.slice(3)
+    }
+    digits = digits.replace(/^0+/, "").slice(0, 10)
+    return [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6)].filter(Boolean).join(" ")
+}
 const trimmed = (value: unknown) => (typeof value === "string" ? value.trim() : value)
 
 function idFileProblem(file: File): string | null {
@@ -167,7 +181,7 @@ export default function ChallengeRegisterPage() {
                 email: all.email.trim(),
                 password: all.password,
                 password_confirmation: all.passwordConfirmation,
-                phone: stripPhoneFormatting(all.phone),
+                phone: COUNTRY_CODE + phoneDigits(all.phone),
                 institution_id: all.institutionId,
                 state: all.state,
                 department: all.department.trim(),
@@ -287,24 +301,25 @@ export default function ChallengeRegisterPage() {
                         <Form.Item
                             label="Phone / WhatsApp"
                             name="phone"
+                            normalize={formatPhoneInput}
                             rules={[
                                 { required: true, message: "Enter your phone number" },
                                 {
                                     validator: (_, value?: string) =>
-                                        !value || NIGERIAN_MOBILE.test(stripPhoneFormatting(value))
+                                        !value || NIGERIAN_MOBILE.test(phoneDigits(value))
                                             ? Promise.resolve()
                                             : Promise.reject(
-                                                  new Error("Enter a valid Nigerian mobile number, e.g. 0801 234 5678"),
+                                                  new Error("Enter a valid Nigerian mobile number, e.g. 801 234 5678"),
                                               ),
                                 },
                             ]}
                         >
                             <Input
-                                addonBefore="+234"
+                                addonBefore={COUNTRY_CODE}
                                 placeholder="801 234 5678"
                                 inputMode="tel"
                                 autoComplete="tel-national"
-                                maxLength={16}
+                                maxLength={20}
                             />
                         </Form.Item>
                         <Form.Item
@@ -450,7 +465,9 @@ export default function ChallengeRegisterPage() {
                         <Descriptions bordered column={1} size="small" className="mb-4">
                             <Descriptions.Item label="Full name">{form.getFieldValue("fullName")}</Descriptions.Item>
                             <Descriptions.Item label="Email">{form.getFieldValue("email")}</Descriptions.Item>
-                            <Descriptions.Item label="Phone">{form.getFieldValue("phone")}</Descriptions.Item>
+                            <Descriptions.Item label="Phone">
+                                {COUNTRY_CODE} {form.getFieldValue("phone")}
+                            </Descriptions.Item>
                             <Descriptions.Item label="State">{form.getFieldValue("state")}</Descriptions.Item>
                             <Descriptions.Item label="Institution">
                                 {institutions.find((i) => i.id === form.getFieldValue("institutionId"))?.name}
