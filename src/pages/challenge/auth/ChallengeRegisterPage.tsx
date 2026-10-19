@@ -1,6 +1,7 @@
 import { InboxOutlined } from "@ant-design/icons"
 import {
     Alert,
+    AutoComplete,
     Button,
     Checkbox,
     Descriptions,
@@ -16,6 +17,7 @@ import { isAxiosError } from "axios"
 import { useEffect, useMemo, useState } from "react"
 import { Link } from "react-router"
 import useDocumentHead from "../../../hooks/use-document-head"
+import { universityCourses } from "../../../data/challenge"
 import { useInstitutions } from "../../../features/challenge/institutions/useInstitutions"
 import { useRegister } from "../../../features/challenge/auth/useAuth"
 import type { ApiValidationError } from "../../../lib/api/client"
@@ -31,6 +33,7 @@ const NIGERIAN_MOBILE = /^(\+?234|0)?[789][01]\d{8}$/
 const PERSON_NAME = /^[\p{L}\s.'-]+$/u
 const ID_FILE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".pdf"]
 const ID_FILE_MAX_BYTES = 5 * 1024 * 1024
+const COURSE_OPTIONS = universityCourses.map((course) => ({ value: course }))
 
 interface RegisterFormValues {
     fullName: string
@@ -367,12 +370,19 @@ export default function ChallengeRegisterPage() {
                         <Form.Item
                             label="Department / Course"
                             name="department"
+                            extra="Can't find your course? Type it in."
                             rules={[
                                 { required: true, whitespace: true, message: "Enter your department or course" },
                                 { max: 255, message: "Department is too long" },
                             ]}
                         >
-                            <Input placeholder="e.g. Computer Science" />
+                            <AutoComplete
+                                placeholder="Search or type your course"
+                                options={COURSE_OPTIONS}
+                                filterOption={(input, option) =>
+                                    (option?.value ?? "").toLowerCase().includes(input.trim().toLowerCase())
+                                }
+                            />
                         </Form.Item>
                         <Form.Item
                             label="Graduation year (completed or expected)"

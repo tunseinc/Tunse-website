@@ -63,4 +63,29 @@ describe("ChallengeRegisterPage", () => {
         expect(await findByTitle("Olabisi Onabanjo University, Ago-Iwoye")).toBeInTheDocument()
         expect(queryByTitle("University of Lagos")).not.toBeInTheDocument()
     })
+
+    it("suggests courses but accepts a course typed in that isn't listed", async () => {
+        const user = userEvent.setup()
+        const { getByLabelText, getByRole, findByLabelText, findByTitle, queryByText, findByText } =
+            renderWithProviders(<ChallengeRegisterPage />)
+
+        await fillAccountStep(user, getByLabelText, "08012345678")
+        await user.click(getByRole("button", { name: "Continue" }))
+
+        await user.type(await findByLabelText("Department / Course"), "Comput")
+        expect(await findByTitle("Computer Science")).toBeInTheDocument()
+
+        await user.clear(getByLabelText("Department / Course"))
+        await user.type(getByLabelText("Department / Course"), "Underwater Basket Weaving")
+        await user.click(getByLabelText("State of your institution"))
+        await user.click(await findByTitle("Ogun"))
+        await user.click(getByLabelText("Institution"))
+        await user.click(await findByTitle("Olabisi Onabanjo University, Ago-Iwoye"))
+        await user.click(getByLabelText("Graduation year (completed or expected)"))
+        await user.click(await findByTitle("2015"))
+        await user.click(getByRole("button", { name: "Continue" }))
+
+        expect(await findByText("Student ID upload")).toBeInTheDocument()
+        expect(queryByText("Enter your department or course")).not.toBeInTheDocument()
+    })
 })
