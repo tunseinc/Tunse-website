@@ -29,6 +29,7 @@ export default function ChallengeLandingPage() {
     const { data: phases = [] } = usePhases()
     const { data: institutions = [] } = useInstitutions()
     const phase1 = phases.find((p) => p.number === 1)
+    const showPhase1Countdown = phase1 !== undefined && new Date(phase1.ends_at).getTime() > Date.now()
 
     return (
         <div>
@@ -39,7 +40,7 @@ export default function ChallengeLandingPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <Tag color="success" className="!text-sm !px-3 !py-1">
+                        <Tag color="success" className="!text-sm !px-3 !py-1 !whitespace-normal !me-0">
                             National Student-Led Marketplace Activation Program
                         </Tag>
                     </motion.div>
@@ -73,8 +74,8 @@ export default function ChallengeLandingPage() {
                             </Button>
                         </Link>
                     </div>
-                    {phase1 && (
-                        <div className="mt-4">
+                    {showPhase1Countdown && (
+                        <div className="mt-4 [&_.ant-statistic-title]:!text-[#CFDBFA] [&_.ant-statistic-content]:!text-white">
                             <CountdownTimer title="Phase 1 closes in" targetIso={phase1.ends_at} />
                         </div>
                     )}

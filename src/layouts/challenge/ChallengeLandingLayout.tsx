@@ -10,11 +10,11 @@ export default function ChallengeLandingLayout() {
 
     return (
         <Layout className="min-h-screen !bg-white">
-            <Header className="!bg-white shadow-sm px-4 md:px-8 flex items-center justify-between sticky top-0 z-50 h-16">
+            <Header className="!bg-white shadow-sm !px-4 md:!px-8 flex items-center justify-between gap-2 sticky top-0 z-50 h-16">
                 <ChallengeLogo variant="light" />
                 {!isAuthPage && (
                     <div className="flex items-center gap-2 md:gap-3">
-                        <Link to="/challenge/rules">
+                        <Link to="/challenge/rules" className="hidden sm:block">
                             <Button type="text">Rules & FAQ</Button>
                         </Link>
                         <Link to="/challenge/login">
@@ -22,7 +22,8 @@ export default function ChallengeLandingLayout() {
                         </Link>
                         <Link to="/challenge/register">
                             <Button type="primary" shape="round">
-                                Join the Challenge
+                                <span className="sm:hidden">Join</span>
+                                <span className="hidden sm:inline">Join the Challenge</span>
                             </Button>
                         </Link>
                     </div>
